@@ -1,4 +1,4 @@
-# Financial Benchmarking Application
+# ClientBench Application
 
 A full-stack financial performance analysis and benchmarking tool for comparing client companies against their competitors.
 

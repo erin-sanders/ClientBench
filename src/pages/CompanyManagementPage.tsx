@@ -24,7 +24,7 @@ export function CompanyManagementPage() {
           Company Management
         </h1>
         <p className="text-slate-600 text-lg">
-          Configure your client company and competitors for financial benchmarking
+          Configure your client company and competitors for ClientBench analysis
         </p>
       </div>
 

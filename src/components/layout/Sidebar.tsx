@@ -44,7 +44,7 @@ export function Sidebar() {
       <div className="flex h-16 items-center border-b border-slate-700 px-6 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="flex items-center gap-2 font-bold text-white">
           <Building2 className="h-6 w-6" />
-          <span className="text-lg">FinanceBench</span>
+          <span className="text-lg">ClientBench</span>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export function Sidebar() {
       {/* Footer */}
       <div className="border-t border-slate-700 p-4">
         <div className="text-xs text-slate-400 text-center">
-          Financial Benchmarking Platform
+          ClientBench Platform
         </div>
       </div>
     </div>

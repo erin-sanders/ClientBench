@@ -1,9 +1,9 @@
-# Copilot Instructions for Financial Benchmarking Application
+# Copilot Instructions for ClientBench Application
 
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
 ## Project Overview
-This is a full-stack financial benchmarking application that helps analyze and compare financial performance data between clients and their competitors.
+This is a full-stack ClientBench application that helps analyze and compare financial performance data between clients and their competitors.
 
 ## Frontend Architecture
 - **Framework**: React with TypeScript, built with Vite

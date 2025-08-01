@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import List, Optional
 import json
 
-app = FastAPI(title="Financial Benchmarking API", version="1.0.0")
+app = FastAPI(title="ClientBench API", version="1.0.0")
 
 # Enable CORS for frontend
 app.add_middleware(
@@ -111,7 +111,7 @@ SAMPLE_DATA = [
 
 @app.get("/")
 async def root():
-    return {"message": "Financial Benchmarking API"}
+    return {"message": "ClientBench API"}
 
 @app.get("/api/companies", response_model=List[Company])
 async def get_companies():
