@@ -192,9 +192,9 @@ export function FinancialPerformancePage() {
         </div>
         
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground bg-white dark:bg-gray-800 px-3 py-2 rounded-lg border shadow-sm">
-            <Calendar className="h-4 w-4" />
-            Last updated: {lastRefresh.toLocaleDateString()}
+          <div className="flex items-center gap-2 text-sm text-white dark:text-gray-200 bg-blue-600 dark:bg-blue-800 px-3 py-2 rounded-lg border border-blue-700 dark:border-blue-600 shadow-sm">
+            <Calendar className="h-4 w-4 text-blue-100 dark:text-blue-300" />
+            <span className="font-medium">Last updated: {lastRefresh.toLocaleDateString()}</span>
           </div>
           <Button onClick={handleRefresh} variant="outline" size="sm" className="shadow-sm">
             <RefreshCw className="mr-2 h-4 w-4" />
