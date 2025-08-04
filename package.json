@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "swa:build": "npm run build",
+    "swa:deploy": "swa deploy ./dist --subscription-id 84ea2871-4923-4a42-96a7-5b44d005cad6 --resource-group rg-inno-demos --app-name ClientBench"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
