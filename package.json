@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:auth": "swa start http://localhost:5173 --run \"npm run dev\" --swa-config-location ./staticwebapp.config.local.json",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "swa:build": "npm run build",
-    "swa:deploy": "swa deploy ./dist --subscription-id 84ea2871-4923-4a42-96a7-5b44d005cad6 --resource-group rg-inno-demos --app-name ClientBench"
+    "swa:deploy": "swa deploy ./dist --subscription-id 84ea2871-4923-4a42-96a7-5b44d005cad6 --resource-group rg-inno-demos --app-name ClientBench",
+    "deploy": "npm run build && swa deploy ./dist --subscription-id 84ea2871-4923-4a42-96a7-5b44d005cad6 --resource-group rg-inno-demos --app-name ClientBench"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
