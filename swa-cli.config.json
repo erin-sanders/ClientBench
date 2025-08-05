@@ -1,0 +1,13 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "clientbench": {
+      "appLocation": "./",
+      "outputLocation": "./dist",
+      "appBuildCommand": "npm run build",
+      "appDevserverUrl": "http://localhost:5173",
+      "appDevserverTimeout": 120000,
+      "swaConfigLocation": "./staticwebapp.config.local.json"
+    }
+  }
+}
