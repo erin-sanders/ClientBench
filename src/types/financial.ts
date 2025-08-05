@@ -4,6 +4,11 @@ export interface Company {
   industry: string
   marketCap: number
   isClient: boolean
+  address?: string
+  logo?: string
+  employees?: number
+  description?: string
+  competitiveLandscape?: string
 }
 
 export interface FinancialMetrics {

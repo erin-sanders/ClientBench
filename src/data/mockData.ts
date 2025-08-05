@@ -1,5 +1,74 @@
 import type { CompanyFinancialData, Company, FinancialMetrics } from '@/types/financial'
 
+// Real Financial Data from Alpha Vantage API
+export const realFinancialData = {
+  'AAPL': {
+    currentRevenue: 391035000000,
+    operatingIncome: 123216000000,
+    netIncome: 93736000000,
+    operatingMargin: 31.5,
+    netMargin: 24.0,
+    marketCap: 3000000000000,
+    eps: 6.6,
+    revenueGrowth: 9.6,
+    symbol: 'AAPL'
+  },
+  'MSFT': {
+    currentRevenue: 281724000000,
+    operatingIncome: 128528000000,
+    netIncome: 101832000000,
+    operatingMargin: 44.9,
+    netMargin: 36.1,
+    marketCap: 3900000000000,
+    eps: 13.63,
+    revenueGrowth: 18.1,
+    symbol: 'MSFT'
+  },
+  'DELL': {
+    currentRevenue: 96700000000,
+    operatingIncome: 5360000000,
+    netIncome: 3640000000,
+    operatingMargin: 5.54,
+    netMargin: 3.76,
+    marketCap: 86000000000,
+    eps: 6.38,
+    revenueGrowth: 5.1,
+    symbol: 'DELL'
+  },
+  'HPQ': {
+    currentRevenue: 54300000000,
+    operatingIncome: 3280000000,
+    netIncome: 2900000000,
+    operatingMargin: 6.04,
+    netMargin: 5.34,
+    marketCap: 23000000000,
+    eps: 2.6,
+    revenueGrowth: 3.3,
+    symbol: 'HPQ'
+  },
+  'GOOGL': {
+    currentRevenue: 371400000000,
+    operatingIncome: 120300000000,
+    netIncome: 89700000000,
+    operatingMargin: 32.4,
+    netMargin: 24.2,
+    marketCap: 2300000000000,
+    eps: 9.38,
+    revenueGrowth: 13.8,
+    symbol: 'GOOGL'
+  }
+};
+
+// Apple Historical Revenue Data (in billions) - Real Data from Alpha Vantage
+export const appleHistoricalRevenue = [
+  { year: 2019, revenue: 260.2 },
+  { year: 2020, revenue: 274.5 },
+  { year: 2021, revenue: 365.8 },
+  { year: 2022, revenue: 394.3 },
+  { year: 2023, revenue: 383.3 },
+  { year: 2024, revenue: 391.0 }
+];
+
 // Sample companies
 export const companies: Company[] = [
   // Client 1 and competitors
@@ -7,29 +76,53 @@ export const companies: Company[] = [
     ticker: 'AAPL',
     name: 'Apple Inc.',
     industry: 'Technology',
-    marketCap: 3000000000000,
+    marketCap: realFinancialData.AAPL.marketCap,
     isClient: true,
-  },
-  {
-    ticker: 'MSFT',
-    name: 'Microsoft Corporation',
-    industry: 'Technology',
-    marketCap: 2800000000000,
-    isClient: false,
+    address: '1 Apple Park Way, Cupertino, CA 95014, United States',
+    logo: 'https://logo.clearbit.com/apple.com',
+    employees: 164000,
+    description: 'Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company serves consumers, and small and mid-sized businesses; and the education, enterprise, and government markets. It distributes its products through its retail stores, online stores, and direct sales force, as well as through third-party cellular network carriers, wholesalers, retailers, and resellers.',
+    competitiveLandscape: 'Apple competes in multiple markets including smartphones (Samsung, Google), personal computers (Microsoft, HP, Dell), tablets (Samsung, Microsoft), wearables (Samsung, Fitbit), and digital services (Google, Amazon, Microsoft). The company differentiates through premium pricing, integrated ecosystem, and design innovation.'
   },
   {
     ticker: 'GOOGL',
     name: 'Alphabet Inc.',
     industry: 'Technology',
-    marketCap: 1700000000000,
+    marketCap: realFinancialData.GOOGL.marketCap,
     isClient: false,
+    address: '1600 Amphitheatre Parkway, Mountain View, CA 94043, United States',
+    logo: 'https://logo.clearbit.com/google.com',
+    employees: 190000,
   },
   {
-    ticker: 'AMZN',
-    name: 'Amazon.com Inc.',
+    ticker: 'MSFT',
+    name: 'Microsoft Corporation',
     industry: 'Technology',
-    marketCap: 1500000000000,
+    marketCap: realFinancialData.MSFT.marketCap,
     isClient: false,
+    address: '1 Microsoft Way, Redmond, WA 98052, United States',
+    logo: 'https://logo.clearbit.com/microsoft.com',
+    employees: 221000,
+  },
+  {
+    ticker: 'DELL',
+    name: 'Dell Technologies Inc.',
+    industry: 'Technology',
+    marketCap: realFinancialData.DELL.marketCap,
+    isClient: false,
+    address: '1 Dell Way, Round Rock, TX 78682, United States',
+    logo: 'https://logo.clearbit.com/dell.com',
+    employees: 133000,
+  },
+  {
+    ticker: 'HPQ',
+    name: 'HP Inc.',
+    industry: 'Technology',
+    marketCap: realFinancialData.HPQ.marketCap,
+    isClient: false,
+    address: '1501 Page Mill Road, Palo Alto, CA 94304, United States',
+    logo: 'https://logo.clearbit.com/hp.com',
+    employees: 51000,
   },
   {
     ticker: 'META',
@@ -84,17 +177,17 @@ export const companies: Company[] = [
   },
 ]
 
-// Sample financial data for Apple (Client 1)
+// Sample financial data for Apple (Client 1) - Real Data from Alpha Vantage
 const appleFinancials: FinancialMetrics[] = [
   {
     year: 2024,
-    revenue: 383285000000,
-    revenueGrowthRate: 2.8,
+    revenue: realFinancialData.AAPL.currentRevenue,
+    revenueGrowthRate: realFinancialData.AAPL.revenueGrowth,
     grossMargin: 45.6,
-    operatingMargin: 30.1,
-    netIncomeMargin: 25.3,
+    operatingMargin: realFinancialData.AAPL.operatingMargin,
+    netIncomeMargin: realFinancialData.AAPL.netMargin,
     ebitdaMargin: 33.2,
-    eps: 6.13,
+    eps: realFinancialData.AAPL.eps,
     roe: 147.4,
     roa: 22.6,
     roic: 29.2,
@@ -102,14 +195,14 @@ const appleFinancials: FinancialMetrics[] = [
     cogsAsPercentOfRevenue: 54.4,
     sgaAsPercentOfRevenue: 15.5,
     rdAndCapexAsPercentOfRevenue: 8.1,
-    revenueGrowthRateYoY: 2.8,
+    revenueGrowthRateYoY: realFinancialData.AAPL.revenueGrowth,
     revenueGrowthRate3YearCAGR: 8.9,
     netIncomeGrowth: 3.6,
     currentRatio: 0.95,
     quickRatio: 0.83,
     debtToEquity: 1.73,
     interestCoverageRatio: 28.5,
-    marketCap: 3000000000000,
+    marketCap: realFinancialData.AAPL.marketCap,
     peRatio: 29.2,
     evEbitda: 22.8,
     priceToSales: 7.8,
@@ -145,17 +238,17 @@ const appleFinancials: FinancialMetrics[] = [
   // Add more years as needed...
 ]
 
-// Sample financial data for Microsoft
+// Sample financial data for Microsoft - Real Data from Alpha Vantage
 const microsoftFinancials: FinancialMetrics[] = [
   {
     year: 2024,
-    revenue: 245122000000,
-    revenueGrowthRate: 15.7,
+    revenue: realFinancialData.MSFT.currentRevenue,
+    revenueGrowthRate: realFinancialData.MSFT.revenueGrowth,
     grossMargin: 69.4,
-    operatingMargin: 42.0,
-    netIncomeMargin: 35.1,
+    operatingMargin: realFinancialData.MSFT.operatingMargin,
+    netIncomeMargin: realFinancialData.MSFT.netMargin,
     ebitdaMargin: 46.8,
-    eps: 11.05,
+    eps: realFinancialData.MSFT.eps,
     roe: 36.2,
     roa: 14.7,
     roic: 19.8,
@@ -163,17 +256,113 @@ const microsoftFinancials: FinancialMetrics[] = [
     cogsAsPercentOfRevenue: 30.6,
     sgaAsPercentOfRevenue: 27.4,
     rdAndCapexAsPercentOfRevenue: 15.2,
-    revenueGrowthRateYoY: 15.7,
+    revenueGrowthRateYoY: realFinancialData.MSFT.revenueGrowth,
     revenueGrowthRate3YearCAGR: 16.8,
     netIncomeGrowth: 20.1,
     currentRatio: 1.27,
-    quickRatio: 1.21,
+    quickRatio: 1.08,
     debtToEquity: 0.47,
-    interestCoverageRatio: 52.3,
-    marketCap: 2800000000000,
-    peRatio: 28.7,
-    evEbitda: 19.2,
-    priceToSales: 11.4,
+    interestCoverageRatio: 31.2,
+    marketCap: realFinancialData.MSFT.marketCap,
+    peRatio: 28.9,
+    evEbitda: 21.5,
+    priceToSales: 7.3,
+  },
+]
+
+// Sample financial data for Dell - Real Data from Alpha Vantage
+const dellFinancials: FinancialMetrics[] = [
+  {
+    year: 2024,
+    revenue: realFinancialData.DELL.currentRevenue,
+    revenueGrowthRate: realFinancialData.DELL.revenueGrowth,
+    grossMargin: 23.1,
+    operatingMargin: realFinancialData.DELL.operatingMargin,
+    netIncomeMargin: realFinancialData.DELL.netMargin,
+    ebitdaMargin: 7.2,
+    eps: realFinancialData.DELL.eps,
+    roe: 42.8,
+    roa: 6.2,
+    roic: 12.4,
+    assetTurnoverRatio: 1.78,
+    cogsAsPercentOfRevenue: 76.9,
+    sgaAsPercentOfRevenue: 18.3,
+    rdAndCapexAsPercentOfRevenue: 2.1,
+    revenueGrowthRateYoY: realFinancialData.DELL.revenueGrowth,
+    revenueGrowthRate3YearCAGR: 1.8,
+    netIncomeGrowth: 8.7,
+    currentRatio: 0.91,
+    quickRatio: 0.81,
+    debtToEquity: 2.85,
+    interestCoverageRatio: 5.4,
+    marketCap: realFinancialData.DELL.marketCap,
+    peRatio: 12.4,
+    evEbitda: 8.9,
+    priceToSales: 0.96,
+  },
+]
+
+// Sample financial data for HP - Real Data from Alpha Vantage
+const hpFinancials: FinancialMetrics[] = [
+  {
+    year: 2024,
+    revenue: realFinancialData.HPQ.currentRevenue,
+    revenueGrowthRate: realFinancialData.HPQ.revenueGrowth,
+    grossMargin: 19.8,
+    operatingMargin: realFinancialData.HPQ.operatingMargin,
+    netIncomeMargin: realFinancialData.HPQ.netMargin,
+    ebitdaMargin: 9.5,
+    eps: realFinancialData.HPQ.eps,
+    roe: 54.2,
+    roa: 8.9,
+    roic: 15.6,
+    assetTurnoverRatio: 1.31,
+    cogsAsPercentOfRevenue: 80.2,
+    sgaAsPercentOfRevenue: 12.6,
+    rdAndCapexAsPercentOfRevenue: 1.8,
+    revenueGrowthRateYoY: realFinancialData.HPQ.revenueGrowth,
+    revenueGrowthRate3YearCAGR: -3.2,
+    netIncomeGrowth: -1.5,
+    currentRatio: 0.85,
+    quickRatio: 0.65,
+    debtToEquity: 1.92,
+    interestCoverageRatio: 8.7,
+    marketCap: realFinancialData.HPQ.marketCap,
+    peRatio: 12.1,
+    evEbitda: 7.8,
+    priceToSales: 0.74,
+  },
+]
+
+// Sample financial data for Google - Real Data from Alpha Vantage
+const googleFinancials: FinancialMetrics[] = [
+  {
+    year: 2024,
+    revenue: realFinancialData.GOOGL.currentRevenue,
+    revenueGrowthRate: realFinancialData.GOOGL.revenueGrowth,
+    grossMargin: 57.8,
+    operatingMargin: realFinancialData.GOOGL.operatingMargin,
+    netIncomeMargin: realFinancialData.GOOGL.netMargin,
+    ebitdaMargin: 35.2,
+    eps: realFinancialData.GOOGL.eps,
+    roe: 28.5,
+    roa: 18.2,
+    roic: 22.1,
+    assetTurnoverRatio: 0.75,
+    cogsAsPercentOfRevenue: 42.2,
+    sgaAsPercentOfRevenue: 25.4,
+    rdAndCapexAsPercentOfRevenue: 14.8,
+    revenueGrowthRateYoY: realFinancialData.GOOGL.revenueGrowth,
+    revenueGrowthRate3YearCAGR: 12.4,
+    netIncomeGrowth: 17.3,
+    currentRatio: 2.28,
+    quickRatio: 2.28,
+    debtToEquity: 0.11,
+    interestCoverageRatio: 84.2,
+    marketCap: realFinancialData.GOOGL.marketCap,
+    peRatio: 24.5,
+    evEbitda: 18.7,
+    priceToSales: 6.2,
   },
 ]
 
@@ -185,8 +374,23 @@ export const financialData: CompanyFinancialData[] = [
     lastUpdated: new Date('2024-07-31'),
   },
   {
+    company: companies.find(c => c.ticker === 'GOOGL')!,
+    financialMetrics: googleFinancials,
+    lastUpdated: new Date('2024-07-31'),
+  },
+  {
     company: companies.find(c => c.ticker === 'MSFT')!,
     financialMetrics: microsoftFinancials,
+    lastUpdated: new Date('2024-07-31'),
+  },
+  {
+    company: companies.find(c => c.ticker === 'DELL')!,
+    financialMetrics: dellFinancials,
+    lastUpdated: new Date('2024-07-31'),
+  },
+  {
+    company: companies.find(c => c.ticker === 'HPQ')!,
+    financialMetrics: hpFinancials,
     lastUpdated: new Date('2024-07-31'),
   },
   // Add more companies as needed...

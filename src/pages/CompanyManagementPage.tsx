@@ -21,7 +21,7 @@ export function CompanyManagementPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-slate-800 mb-2">
-          Company Management
+          Client Settings
         </h1>
         <p className="text-slate-600 text-lg">
           Configure your client company and competitors for ClientBench analysis
@@ -34,8 +34,11 @@ export function CompanyManagementPage() {
           onCompaniesChange={handleCompaniesChange}
           initialCompanies={[
             { ticker: 'AAPL', name: 'Apple Inc.', type: 'client' },
+            { ticker: 'SSNLF', name: 'Samsung Electronics Co., Ltd.', type: 'competitor' },
+            { ticker: 'GOOGL', name: 'Alphabet Inc.', type: 'competitor' },
             { ticker: 'MSFT', name: 'Microsoft Corporation', type: 'competitor' },
-            { ticker: 'GOOGL', name: 'Alphabet Inc.', type: 'competitor' }
+            { ticker: 'DELL', name: 'Dell Technologies Inc.', type: 'competitor' },
+            { ticker: 'HPQ', name: 'HP Inc.', type: 'competitor' }
           ]}
         />
       </div>

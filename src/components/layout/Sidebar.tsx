@@ -21,11 +21,6 @@ const navigationItems = [
     icon: TrendingUp,
   },
   {
-    name: 'Company Management',
-    href: '/company-management',
-    icon: Settings,
-  },
-  {
     name: 'News & Events',
     href: '/news',
     icon: Newspaper,
@@ -34,6 +29,11 @@ const navigationItems = [
     name: 'Industry KPIs',
     href: '/industry-kpis',
     icon: Target,
+  },
+  {
+    name: 'Client Settings',
+    href: '/company-management',
+    icon: Settings,
   },
 ]
 

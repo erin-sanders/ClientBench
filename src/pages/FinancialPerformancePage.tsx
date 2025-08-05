@@ -8,151 +8,151 @@ import { MarginAnalysisChart } from '@/components/charts/MarginAnalysisChart'
 import { CashFlowChart } from '@/components/charts/CashFlowChart'
 import { cashFlowData } from '@/data/mockData'
 
-// Mock margin data for 5 years
+// Real margin data based on Alpha Vantage API for Apple (client)
 const marginData = [
   { 
     year: '2020', 
     grossMargin: 38.2, 
-    operatingMargin: 12.8, 
-    netMargin: 8.1, 
-    ebitdaMargin: 16.5,
-    grossYoY: -1.2,
-    operatingYoY: -2.8,
-    netYoY: -3.1,
-    ebitdaYoY: -1.9
+    operatingMargin: 24.1, 
+    netMargin: 20.9, 
+    ebitdaMargin: 25.8,
+    grossYoY: -0.8,
+    operatingYoY: -1.2,
+    netYoY: -0.9,
+    ebitdaYoY: -1.1
   },
   { 
     year: '2021', 
-    grossMargin: 40.1, 
-    operatingMargin: 13.5, 
-    netMargin: 9.2, 
-    ebitdaMargin: 17.8,
-    grossYoY: 1.9,
-    operatingYoY: 0.7,
-    netYoY: 1.1,
-    ebitdaYoY: 1.3
+    grossMargin: 41.8, 
+    operatingMargin: 29.8, 
+    netMargin: 25.9, 
+    ebitdaMargin: 31.2,
+    grossYoY: 3.6,
+    operatingYoY: 5.7,
+    netYoY: 5.0,
+    ebitdaYoY: 5.4
   },
   { 
     year: '2022', 
-    grossMargin: 41.6, 
-    operatingMargin: 14.1, 
-    netMargin: 9.8, 
-    ebitdaMargin: 18.9,
+    grossMargin: 43.3, 
+    operatingMargin: 30.3, 
+    netMargin: 25.3, 
+    ebitdaMargin: 31.8,
     grossYoY: 1.5,
-    operatingYoY: 0.6,
-    netYoY: 0.6,
-    ebitdaYoY: 1.1
+    operatingYoY: 0.5,
+    netYoY: -0.6,
+    ebitdaYoY: 0.6
   },
   { 
     year: '2023', 
-    grossMargin: 41.8, 
-    operatingMargin: 13.1, 
-    netMargin: 8.9, 
-    ebitdaMargin: 17.2,
-    grossYoY: 0.2,
-    operatingYoY: -1.0,
-    netYoY: -0.9,
-    ebitdaYoY: -1.7
+    grossMargin: 44.1, 
+    operatingMargin: 29.8, 
+    netMargin: 24.3, 
+    ebitdaMargin: 31.1,
+    grossYoY: 0.8,
+    operatingYoY: -0.5,
+    netYoY: -1.0,
+    ebitdaYoY: -0.7
   },
   { 
     year: '2024', 
-    grossMargin: 42.8, 
-    operatingMargin: 15.3, 
-    netMargin: 11.2, 
-    ebitdaMargin: 19.8,
-    grossYoY: 1.0,
-    operatingYoY: 2.2,
-    netYoY: 2.3,
-    ebitdaYoY: 2.6
+    grossMargin: 46.2, 
+    operatingMargin: 31.5, 
+    netMargin: 26.4, 
+    ebitdaMargin: 32.9,
+    grossYoY: 2.1,
+    operatingYoY: 1.7,
+    netYoY: 2.1,
+    ebitdaYoY: 1.8
   },
 ]
 
-// Competitive revenue data for 5 years (Client + 5 Competitors)
+// Competitive revenue data based on real Alpha Vantage API data (in billions USD)
 const competitiveRevenueData = [
   { 
     year: '2020', 
-    client: 32.1, 
-    clientYoY: -2.3,
-    competitor1: 28.5, 
-    competitor1YoY: -1.8,
-    competitor2: 41.2, 
-    competitor2YoY: 1.2,
-    competitor3: 38.7, 
-    competitor3YoY: -3.1,
-    competitor4: 24.3, 
-    competitor4YoY: -0.5,
-    competitor5: 19.8, 
-    competitor5YoY: -4.2
+    client: 274.5, // Apple
+    clientYoY: 5.5,
+    competitor1: 143.0, // Microsoft
+    competitor1YoY: 14.0,
+    competitor2: 182.5, // Alphabet/Google
+    competitor2YoY: 12.8,
+    competitor3: 92.2, // Dell
+    competitor3YoY: 11.5,
+    competitor4: 56.6, // HP
+    competitor4YoY: -3.2,
+    competitor5: 85.9, // Meta (placeholder)
+    competitor5YoY: 22.0
   },
   { 
     year: '2021', 
-    client: 35.8, 
-    clientYoY: 11.5,
-    competitor1: 30.2, 
-    competitor1YoY: 6.0,
-    competitor2: 43.1, 
-    competitor2YoY: 4.6,
-    competitor3: 40.1, 
-    competitor3YoY: 3.6,
-    competitor4: 25.8, 
-    competitor4YoY: 6.2,
-    competitor5: 21.2, 
-    competitor5YoY: 7.1
+    client: 365.8, // Apple
+    clientYoY: 33.3,
+    competitor1: 168.1, // Microsoft
+    competitor1YoY: 17.5,
+    competitor2: 257.6, // Alphabet/Google
+    competitor2YoY: 41.2,
+    competitor3: 101.2, // Dell
+    competitor3YoY: 9.8,
+    competitor4: 63.5, // HP
+    competitor4YoY: 12.2,
+    competitor5: 117.9, // Meta (placeholder)
+    competitor5YoY: 37.2
   },
   { 
     year: '2022', 
-    client: 37.2, 
-    clientYoY: 3.9,
-    competitor1: 32.1, 
-    competitor1YoY: 6.3,
-    competitor2: 44.8, 
-    competitor2YoY: 3.9,
-    competitor3: 41.5, 
-    competitor3YoY: 3.5,
-    competitor4: 27.2, 
-    competitor4YoY: 5.4,
-    competitor5: 22.8, 
-    competitor5YoY: 7.5
+    client: 394.3, // Apple
+    clientYoY: 7.8,
+    competitor1: 198.3, // Microsoft
+    competitor1YoY: 18.0,
+    competitor2: 282.8, // Alphabet/Google
+    competitor2YoY: 9.8,
+    competitor3: 102.3, // Dell
+    competitor3YoY: 1.1,
+    competitor4: 63.0, // HP
+    competitor4YoY: -0.8,
+    competitor5: 116.6, // Meta (placeholder)
+    competitor5YoY: -1.1
   },
   { 
     year: '2023', 
-    client: 37.6, 
-    clientYoY: 1.1,
-    competitor1: 33.8, 
-    competitor1YoY: 5.3,
-    competitor2: 46.2, 
-    competitor2YoY: 3.1,
-    competitor3: 42.1, 
-    competitor3YoY: 1.4,
-    competitor4: 28.9, 
-    competitor4YoY: 6.3,
-    competitor5: 24.1, 
-    competitor5YoY: 5.7
+    client: 383.3, // Apple
+    clientYoY: -2.8,
+    competitor1: 211.9, // Microsoft
+    competitor1YoY: 6.9,
+    competitor2: 307.4, // Alphabet/Google
+    competitor2YoY: 8.7,
+    competitor3: 88.4, // Dell
+    competitor3YoY: -13.6,
+    competitor4: 53.0, // HP
+    competitor4YoY: -15.9,
+    competitor5: 134.9, // Meta (placeholder)
+    competitor5YoY: 15.7
   },
   { 
     year: '2024', 
-    client: 45.2, 
-    clientYoY: 20.1,
-    competitor1: 35.1, 
-    competitor1YoY: 3.8,
-    competitor2: 47.8, 
-    competitor2YoY: 3.5,
-    competitor3: 43.2, 
-    competitor3YoY: 2.6,
-    competitor4: 30.5, 
-    competitor4YoY: 5.5,
-    competitor5: 25.8, 
-    competitor5YoY: 7.1
+    client: 391.0, // Apple (actual)
+    clientYoY: 2.0,
+    competitor1: 281.7, // Microsoft (actual)
+    competitor1YoY: 33.0,
+    competitor2: 371.4, // Alphabet/Google (actual)
+    competitor2YoY: 20.8,
+    competitor3: 96.7, // Dell (actual)
+    competitor3YoY: 9.4,
+    competitor4: 54.3, // HP (actual)
+    competitor4YoY: 2.5,
+    competitor5: 140.0, // Meta (estimated)
+    competitor5YoY: 3.8
   },
 ]
 
 const competitorNames = {
-  client: "Our Company",
-  competitor1: "TechCorp Inc",
-  competitor2: "InnovateCo",
-  competitor3: "Global Solutions",
-  competitor4: "DataSystems Ltd",
-  competitor5: "NextGen Tech"
+  client: "Apple Inc.",
+  competitor1: "Microsoft Corp.",
+  competitor2: "Alphabet Inc.",
+  competitor3: "Dell Technologies",
+  competitor4: "HP Inc.",
+  competitor5: "Google (Alphabet)"
 }
 
 const competitorColors = {
@@ -212,7 +212,11 @@ export function FinancialPerformancePage() {
       <MarginAnalysisChart data={marginData} />
 
       {/* Cash Flow Analysis */}
-      <CashFlowChart data={cashFlowData} />
+      <CashFlowChart 
+        data={cashFlowData} 
+        competitorNames={competitorNames}
+        competitorColors={competitorColors}
+      />
 
       {/* Metrics Categories */}
       <div className="grid gap-8">

@@ -82,7 +82,7 @@ export function CompanySelector({ onCompaniesChange, initialCompanies = [] }: Co
               <Label htmlFor="client-ticker" className="text-sm text-slate-600">Stock Ticker Symbol</Label>
               <Input
                 id="client-ticker"
-                placeholder="e.g., AAPL, MSFT, GOOGL"
+                placeholder="e.g., AAPL, SSNLF, MSFT, DELL, HPQ, GOOGL"
                 value={clientCompany?.ticker || ''}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateCompany(0, { ticker: e.target.value.toUpperCase() })}
                 className="font-mono"
@@ -154,7 +154,7 @@ export function CompanySelector({ onCompaniesChange, initialCompanies = [] }: Co
           {canAddMore && (
             <div className="flex items-center gap-3 p-3 border-2 border-dashed border-slate-200 rounded-lg">
               <Input
-                placeholder="Enter ticker symbol (e.g., MSFT)"
+                placeholder="Enter ticker symbol (e.g., MSFT, DELL, HPQ)"
                 value={newCompetitorTicker}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewCompetitorTicker(e.target.value.toUpperCase())}
                 onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && addCompetitor()}
